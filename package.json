@@ -1,0 +1,25 @@
+{
+  "name": "shopping-cart-exercise",
+  "version": "1.0.0",
+  "description": "Amaysim Engineering Techinical Test",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frankfelarca/shopping-cart-exercise.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frankfelarca/shopping-cart-exercise/issues"
+  },
+  "homepage": "https://github.com/frankfelarca/shopping-cart-exercise#readme",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
