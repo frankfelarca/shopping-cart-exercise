@@ -2,7 +2,7 @@ import { productCatalogue } from "./productCatalogue.js";
 import { promoCodes } from "./promoCodes.js";
 
 export const pricingRules = {
-  calculatePrice: (cartItems) => {
+  calculatePrice: (cartItems, promoCode) => {
     const updatedItems = [];
     let total = 0;
 
@@ -52,6 +52,11 @@ export const pricingRules = {
 
       updatedItems.push(...items);
     });
+
+    // Apply discount for valid promo code.
+    if (promoCodes.includes(promoCode)) {
+      total *= 0.9;
+    }
 
     return { items: updatedItems, total: total.toFixed(2) };
   },
