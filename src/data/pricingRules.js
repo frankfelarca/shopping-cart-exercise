@@ -54,9 +54,12 @@ export const pricingRules = {
     });
 
     // Apply discount for valid promo code.
-    if (promoCodes.includes(promoCode)) {
-      total *= 0.9;
-    }
+    promoCodes.every((promo) => {
+      if (promo.value === promoCode) {
+        total *= promo.discount;
+        return;
+      }
+    });
 
     return { items: updatedItems, total: total.toFixed(2) };
   },
