@@ -1,1 +1,6 @@
-export const promoCodes = ["I<3AMAYSIM"];
+export const promoCodes = [
+  {
+    value: "I<3AMAYSIM",
+    discount: 0.9,
+  },
+];
