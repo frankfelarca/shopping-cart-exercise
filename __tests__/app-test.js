@@ -1,7 +1,6 @@
 import { pricingRules } from "../src/data/pricingRules.js";
 import { productCatalogue } from "../src/data/productCatalogue.js";
-// const { pricingRules } = require("../src/data/pricingRules.js");
-// const { productCatalogue } = require("../src/data/productCatalogue.js");
+import { ShoppingCart } from "../src/data/shoppingCart.js";
 
 describe("Pricing Rules", () => {
   test("Scenario 1: 3 x Unlimited 1GB, 1 x Unlimited 5GB", () => {
@@ -118,5 +117,53 @@ describe("Pricing Rules", () => {
 
     expect(result.total).toBe("31.32");
     expect(result.items).toHaveLength(2);
+  });
+
+  test("Cart functions: Add, Total, Items, Clear", () => {
+    const cartItems = [
+      {
+        code: "ult_small",
+        name: "Unlimited 1GB",
+        price: productCatalogue.ult_small.price,
+      },
+      {
+        code: "ult_small",
+        name: "Unlimited 1GB",
+        price: productCatalogue.ult_small.price,
+      },
+      {
+        code: "ult_large",
+        name: "Unlimited 5GB",
+        price: productCatalogue.ult_large.price,
+      },
+      {
+        code: "ult_large",
+        name: "Unlimited 5GB",
+        price: productCatalogue.ult_large.price,
+      },
+      {
+        code: "ult_large",
+        name: "Unlimited 5GB",
+        price: productCatalogue.ult_large.price,
+      },
+      {
+        code: "ult_large",
+        name: "Unlimited 5GB",
+        price: productCatalogue.ult_large.price,
+      },
+    ];
+
+    const cart = ShoppingCart().new(pricingRules);
+    cart.add("ult_small");
+    cart.add("ult_large");
+
+    expect(cart.total()).toBe(69.8);
+    expect(cart.items()).toStrictEqual([
+      { code: "ult_small", name: "Unlimited 1GB", price: 24.9 },
+      { code: "ult_large", name: "Unlimited 5GB", price: 44.9 },
+    ]);
+
+    cart.clear();
+    expect(cart.total()).toBe(0);
   });
 });
