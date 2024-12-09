@@ -29,3 +29,8 @@ Before you begin, ensure you have the following installed on your machine:
   ```
   npm run test
   ```
+
+## Modifying the app
+- To modify the product catalog, go to "src/data/productCatalogue.js".
+- To modify the promo code/s, go to "src/data/promoCodes.js"
+- To modify the pricing rules, go to "src/data/pricingRules.js"
