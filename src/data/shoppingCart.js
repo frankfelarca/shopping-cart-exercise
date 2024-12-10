@@ -12,13 +12,13 @@ export const ShoppingCart = () => {
         // Add items to the cart.
         add: (itemCode, code = null) => {
           const product = productCatalogue[itemCode];
-          if (product) {
-            cartItems.push({ code: itemCode, ...product });
-            if (code) {
-              promoCode = code;
-            }
-          } else {
+          if (!product) {
             throw new Error(`Item ${itemCode} not found in catalog.`);
+          }
+
+          cartItems.push({ code: itemCode, ...product });
+          if (code) {
+            promoCode = code;
           }
         },
 
